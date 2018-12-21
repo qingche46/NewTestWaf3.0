@@ -1,0 +1,25 @@
+---
+  meta:
+    author: "Christian S.J. Peron"
+    description: "XSS"
+    enabled: true
+    name: "9411001.yaml"
+  tests:
+  -
+    test_title: 9411001
+    desc: "XSS"
+    stages:
+    -
+      stage:
+        input:
+          #          dest_addr: 192.168.88.106
+          headers:
+            Host:
+          method: GET
+##          port: 80
+          uri: '?></SCRIPT>">%27><SCRIPT>alert(String.fromCharCode(88,83,83))</SCRIPT>'
+          version: HTTP/1.0
+        output:
+          log_contains: id "9411001"
+          status: 200
+          response_contains: "safedog.cn/images/safedogsite/broswer_logo.jpg"

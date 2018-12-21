@@ -1,0 +1,43 @@
+---
+  meta:
+    author: "csanders-git"
+    enabled: true
+    name: "9511001.yaml"
+    description: "upload"
+  tests:
+    -
+      test_title: "9511001"
+      stages:
+        -
+          stage:
+            input:
+#              dest_addr: 192.168.88.106
+              method: "POST"
+##          port: 80
+              headers:
+                  User-Agent: "ModSecurity CRS 3 Tests"
+                  Host:
+                  Accept: "*/*"
+                  Accept-Language: "en"
+                  Connection: "close"
+#                  #Referer: "http://192.168.203.195/vulnerabilities/upload/"
+#                  #Cookie: PHPSESSID=a7531dc0a510d2e20634a570dc4668c6; security=low
+                  Content-Type: "multipart/form-data; boundary=--------9753207216051"
+              data:
+                - "----------9753207216051"
+                - "Content-Disposition: form-data; name=\"MAX_FILE_SIZE\";"
+                - ""
+                - "test default"
+                - "----------9753207216051"
+                - "Content-Disposition: form-data; name=\"uploaded\"; filename=\"test.asa\""
+                - "Content-Type: image/jpeg"
+                - ""
+                - "Content-Disposition: form-data; name=\"Upload\";"
+                - ""
+                - "----------9753207216051--"
+              protocol: "http"
+
+            output:
+              status: 200
+              log_contains: id "9511001"
+              response_contains: "safedog.cn/images/safedogsite/broswer_logo.jpg"

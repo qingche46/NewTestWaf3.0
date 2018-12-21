@@ -1,0 +1,25 @@
+---
+  meta:
+    author: "Christian S.J. Peron"
+    description: "SQL"
+    enabled: true
+    name: "9421001.yaml"
+  tests:
+  -
+    test_title: 9421001
+    desc: "Injection of a SQL operator"
+    stages:
+    -
+      stage:
+        input:
+#          dest_addr: 192.168.77.111
+          headers:
+            Host:
+          method: GET
+#          port: 9090
+          uri: "?p=1%20and%201=1%20HTTP/1.1"
+          version: HTTP/1.0
+        output:
+          log_contains: id "9421001"
+          status: 200
+          response_contains: "safedog.cn/images/safedogsite/broswer_logo.jpg"

@@ -1,0 +1,34 @@
+---
+  meta:
+    author: csanders-git
+    description: "SCANNER"
+#    包含用于防范端口和环境扫描程序的规则。
+    enabled: true
+    name: 9131003.yaml
+  tests:
+  -
+    test_title: 9131003_webtrends security analyzer
+    desc: Request Indicates a Security Scanner Scanned the Site (913100) from old modsec regressions
+    stages:
+    -
+      stage:
+        input:
+#          dest_addr: 192.168.77.111
+          headers:
+            Accept: text/xml,application/xml,application/xhtml+xml,text/html;q=0.9,text/plain;q=0.8,image/png,*/*;q=0.5
+            Accept-Charset: ISO-8859-1,utf-8;q=0.7,*;q=0.7
+            Accept-Encoding: gzip,deflate
+            Accept-Language: en-us,en;q=0.5
+            Host:
+            Keep-Alive: '300'
+            Proxy-Connection: keep-alive
+            User-Agent: webtrends security analyzer
+
+          method: GET
+#          port: 80
+#          uri: /login.php
+          version: HTTP/1.0
+        output:
+          status: 200
+          response_contains: "safedog.cn/images/safedogsite/broswer_logo.jpg"
+          log_contains: id "9131003"
