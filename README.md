@@ -1,4 +1,4 @@
-# NewTestWaf3.0
+# NewTestWaf3.0（联系可发邮件qingche46@sina.com）
 ## 修改开源Framework for Testing WAFs (FTW)为Python3
 主要用于测试WAF产品累积更新是否遗漏之前绕过行为，分为get和post请求，
 这边编写了sql，xss，scanner，struts2，upload等yaml模式进行分类，具体的payload可以通过不断积累进行添加
@@ -17,4 +17,4 @@
 **结果截图**<br/>
 ![](./yaml/结果截图.png)
 
-**有疑问发邮件qingche46@sina.com**<br/>
+
