@@ -14,3 +14,5 @@
 * `cd NewTestWaf3.0`
 * `py.test test/test_default.py -s -v --destaddr 192.168.88.244 --port 80 --rule yaml/sql.yaml --html sql.html`
 
+**结果截图**<br/>
+![](./yaml/结果截图.png)
