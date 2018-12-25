@@ -6,7 +6,7 @@
 
 ## 安装
 * `下载https://github.com/qingche46/NewTestWaf3.0.git`
-* `cd NewTestWaf`
+* `cd NewTestWaf3.0`
 * pip is installed `apt-get install python-pip`
 * `pip install -r requirements.txt`
 
